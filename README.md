@@ -1,6 +1,6 @@
-# Retail Core
+# Retail Core – Enterprise Backend Platform
 
-> **A modular backend platform built with Java 21 and Spring Boot.**
+> **A modular backend platform built with Java 21, Spring Boot and event-driven architecture.**
 
 Retail Core is a long-term backend engineering project that explores how
 an enterprise application evolves from a single service into a modular
