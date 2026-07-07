@@ -1,0 +1,33 @@
+# Java
+**/target/
+
+# Maven Wrapper JAR
+!**/.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+.factorypath
+.springBeans
+.sts4-cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# IntelliJ
+*.iml
+
+# Maven
+.mvn/timing.properties
+
+db.txt
