@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CountryDto {
+public class CountryResponse {
     private Long id;
     private String name;
     private String isoCode;
