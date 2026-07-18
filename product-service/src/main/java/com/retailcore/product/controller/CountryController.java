@@ -1,8 +1,8 @@
 package com.retailcore.product.controller;
 
 import com.retailcore.product.service.CountryService;
-import com.retailcore.product.dto.CountryRequest;
-import com.retailcore.product.dto.CountryResponse;
+import com.retailcore.product.dto.request.CountryRequest;
+import com.retailcore.product.dto.response.CountryResponse;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
-import java.util.ArrayList;
-import java.lang.*;
 
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -50,12 +48,6 @@ public class CountryController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CountryResponse> getCountryById(@PathVariable Long id) {
-
-        List<Integer> list = List.of(1,2,3,4,5,6,7,8,9,10);
-        list.parallelStream()
-            .map(n -> n * 2)
-            .forEachOrdered(System.out::println);
-
         return ResponseEntity.ok(countryService.getCountryById(id));
     }
     

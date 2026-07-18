@@ -1,19 +1,11 @@
 package com.retailcore.product.mapper;
-import com.retailcore.product.dto.CountryRequest;
-import com.retailcore.product.dto.CountryResponse;
+import com.retailcore.product.dto.request.CountryRequest;
+import com.retailcore.product.dto.response.CountryResponse;
 import com.retailcore.product.entity.Country;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CountryMapper {
-    public CountryRequest toDto(Country country) {
-        CountryRequest dto = new CountryRequest();
-        dto.setId(country.getId());
-        dto.setName(country.getName());
-        dto.setIsoCode(country.getIsoCode());
-        return dto;
-    }
-
     public Country toEntity(CountryRequest request) {
         Country country = new Country();
         country.setId(request.getId());

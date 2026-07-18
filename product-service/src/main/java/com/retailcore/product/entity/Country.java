@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "country")
+@Table(name = "countries")
 @Getter
 @Setter
-public class Country {
+public class Country extends BaseEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Country {
     @Column(nullable = false)
     private String name;
 
-    @Column(name = "iso_code", nullable = false, unique = true, length = 3)
+    @Column(name = "iso_code", nullable = false, unique = true, length = 2)
     private String isoCode;
 
 }

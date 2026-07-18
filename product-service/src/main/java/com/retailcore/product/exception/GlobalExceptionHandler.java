@@ -10,6 +10,16 @@ import java.util.HashMap;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    @ExceptionHandler(DuplicateResourceException.class)
+
+    public ResponseEntity<String> handleNotFound(
+        DuplicateResourceException ex
+    ) {
+        return ResponseEntity
+            .status(HttpStatus.CONFLICT)
+            .body(ex.getMessage());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
 
     public ResponseEntity<Map<String,String>> handleNotFound(

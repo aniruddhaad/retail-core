@@ -1,15 +1,17 @@
 package com.retailcore.product.service;
 
 import com.retailcore.product.entity.Country;
-import com.retailcore.product.dto.CountryRequest;
-import com.retailcore.product.dto.CountryResponse;
+import com.retailcore.product.dto.request.CountryRequest;
+import com.retailcore.product.dto.response.CountryResponse;
 import com.retailcore.product.mapper.CountryMapper;
 import com.retailcore.product.repository.CountryRepository;
+import com.retailcore.product.exception.DuplicateResourceException;
 import com.retailcore.product.exception.ResourceNotFoundException;
 
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -35,6 +37,11 @@ public class CountryService {
 
     @Transactional
     public CountryResponse createCountry(CountryRequest request) {
+        countryRepository.findByIsoCode(request.getIsoCode())
+            .ifPresent(existingCountry -> { 
+                    throw new DuplicateResourceException("Country with ISO code '" + request.getIsoCode() + "' already exists.");
+                }
+            );
         Country country = countryMapper.toEntity(request);
         Country savedCountry = countryRepository.save(country);
         return countryMapper.toResponse(savedCountry);
